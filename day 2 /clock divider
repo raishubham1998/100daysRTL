@@ -1,0 +1,18 @@
+module clock_divider(clk,div2,div4,div8,reset);
+input clk, reset;
+output reg div2,div4,div8;
+reg [3:0] count;
+
+always @(posedge clk)
+begin
+if (!reset) 
+count = 4'b0000;
+
+else 
+count = count + 1;
+end
+
+div2 = count [1];
+div4 = count [2];
+div2 = count [3];
+endmodule
