@@ -1,0 +1,21 @@
+module tb();
+reg clk, reset;
+wire div2, div4, div8;
+
+clock_divider DUT(clk,div2, div4, div8, reset);
+
+initial
+	begin 
+	
+	clk = 0;
+	reset = 1;
+	
+	#50 reset = 0;
+	end
+always 
+#10 clk = ~clk;
+
+initial 
+#200 $finish;
+
+endmodule
